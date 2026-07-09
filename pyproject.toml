@@ -1,0 +1,73 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "distributed-index-sharding"
+version = "0.1.0"
+description = "A sharded inverted index with distributed query fan-out and ranked result merging across nodes."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "Juan Martos Cuevas", email = "martoscuevasjuan@gmail.com" }]
+dependencies = [
+    "aiohttp>=3.9,<4",
+    "bm25-ranking-engine @ git+https://github.com/juanmmm21/bm25-ranking-engine.git@main",
+]
+
+[project.scripts]
+distributed-index-sharding = "distributed_index_sharding.__main__:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8,<9",
+    "pytest-asyncio>=0.23,<1",
+    "mypy>=1.10,<2",
+    "ruff>=0.5,<1",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/distributed_index_sharding"]
+
+[tool.hatch.metadata]
+# bm25-ranking-engine no está publicado en PyPI (ver ../PROGRESS.md: se usa
+# como dependencia de paquete real, la excepción explícita a "nunca imports
+# cruzados" porque ese proyecto no serializa su resultado a disco). Hatchling
+# rechaza por defecto una dependencia por URL directa (PEP 508) salvo que se
+# habilite explícitamente aquí.
+allow-direct-references = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+# bm25-ranking-engine depende de numpy; sus stubs de NumPy 2.x usan sintaxis
+# PEP 695 que requiere python_version >= 3.12 solo para que mypy los parsee,
+# no implica que este proyecto deje de soportar Python 3.11 en tiempo de
+# ejecución (ver `requires-python` arriba). Mismo ajuste ya aplicado en
+# `learning-to-rank-reranker` y `pagerank-link-analysis`.
+python_version = "3.12"
+strict = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = "aiohttp.*"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+# bm25-ranking-engine no publica un marcador `py.typed` en su distribución
+# instalada (aunque su propio `src/` pasa `mypy --strict` dentro de ese repo),
+# así que mypy lo trata como no tipado al consumirlo como dependencia desde
+# aquí. Mismo patrón ya aplicado a `lightgbm` en `learning-to-rank-reranker`:
+# se ignoran los imports de la librería externa en vez de escribir stubs de
+# terceros a mano para un paquete que no es el foco de este proyecto.
+module = "bm25_ranking_engine.*"
+ignore_missing_imports = true
