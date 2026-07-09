@@ -1,0 +1,6 @@
+{
+  "format_version": 1,
+  "documents_file": "documents.jsonl",
+  "postings_file": "postings.jsonl",
+  "stats_file": "stats.json"
+}

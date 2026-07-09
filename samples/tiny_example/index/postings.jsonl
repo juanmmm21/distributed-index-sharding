@@ -1,0 +1,11 @@
+{"term": "beginner", "document_frequency": 1, "postings": [{"doc_id": 0, "term_frequency": 1, "positions": [3]}]}
+{"term": "developer", "document_frequency": 2, "postings": [{"doc_id": 2, "term_frequency": 1, "positions": [1]}, {"doc_id": 3, "term_frequency": 1, "positions": [3]}]}
+{"term": "engine", "document_frequency": 2, "postings": [{"doc_id": 1, "term_frequency": 1, "positions": [1]}, {"doc_id": 4, "term_frequency": 1, "positions": [3]}]}
+{"term": "index", "document_frequency": 1, "postings": [{"doc_id": 4, "term_frequency": 1, "positions": [1]}]}
+{"term": "inverted", "document_frequency": 1, "postings": [{"doc_id": 4, "term_frequency": 1, "positions": [0]}]}
+{"term": "javascript", "document_frequency": 1, "postings": [{"doc_id": 2, "term_frequency": 1, "positions": [0]}]}
+{"term": "programming", "document_frequency": 1, "postings": [{"doc_id": 3, "term_frequency": 1, "positions": [1]}]}
+{"term": "python", "document_frequency": 3, "postings": [{"doc_id": 0, "term_frequency": 1, "positions": [0]}, {"doc_id": 1, "term_frequency": 1, "positions": [4]}, {"doc_id": 3, "term_frequency": 1, "positions": [0]}]}
+{"term": "ranking", "document_frequency": 1, "postings": [{"doc_id": 1, "term_frequency": 1, "positions": [2]}]}
+{"term": "search", "document_frequency": 2, "postings": [{"doc_id": 1, "term_frequency": 1, "positions": [0]}, {"doc_id": 4, "term_frequency": 1, "positions": [2]}]}
+{"term": "tutorial", "document_frequency": 2, "postings": [{"doc_id": 0, "term_frequency": 1, "positions": [1]}, {"doc_id": 2, "term_frequency": 1, "positions": [2]}]}
