@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "distributed-index-sharding"
-version = "0.1.0"
+version = "0.2.0"
 description = "A sharded inverted index with distributed query fan-out and ranked result merging across nodes."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -12,7 +12,7 @@ license = { file = "LICENSE" }
 authors = [{ name = "Juan Martos Cuevas", email = "martoscuevasjuan@gmail.com" }]
 dependencies = [
     "aiohttp>=3.9,<4",
-    "bm25-ranking-engine @ git+https://github.com/juanmmm21/bm25-ranking-engine.git@main",
+    "bm25-ranking-engine @ git+https://github.com/juanmmm21/bm25-ranking-engine.git@feat/beacon-roadmap",
 ]
 
 [project.scripts]
