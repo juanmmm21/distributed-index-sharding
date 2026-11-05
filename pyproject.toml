@@ -12,7 +12,7 @@ license = { file = "LICENSE" }
 authors = [{ name = "Juan Martos Cuevas", email = "martoscuevasjuan@gmail.com" }]
 dependencies = [
     "aiohttp>=3.9,<4",
-    "bm25-ranking-engine @ git+https://github.com/juanmmm21/bm25-ranking-engine.git@feat/beacon-roadmap",
+    "bm25-ranking-engine @ git+https://github.com/juanmmm21/bm25-ranking-engine.git@v0.2.0",
 ]
 
 [project.scripts]
